@@ -1,11 +1,17 @@
 #pragma once
-struct Player {
+typedef struct Player {
 	int points;
 
 }player;
+typedef struct Terrain {
+	short** landType;
+	short** standingOn;
+
+}terrain;
 
 
-struct MultiPopGameData {
+typedef struct MultiPopGameData {
 	struct player* player;
+
 	char board;
 } gameData;
