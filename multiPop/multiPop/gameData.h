@@ -1,4 +1,7 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+//must provide openall libary when using sfml-audio
+
 typedef struct Player {
 	int points;
 	int health;
