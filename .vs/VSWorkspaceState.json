@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\multiPop",
+    "\\multiPop\\multiPop"
   ],
+  "SelectedNode": "\\multiPop\\multiPop\\gameData.h",
   "PreviewInSolutionExplorer": false
 }
