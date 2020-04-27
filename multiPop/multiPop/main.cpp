@@ -1,20 +1,24 @@
 #include "gamedata.h"
 
-int main(void)
-{
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Title");
+int main(void) {
+	gameData game;
+	setDefaults(&game);
 
-	sf::Event event;
+	display(&game);
 
-	while (window.isOpen())
-	{
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-		}
-	}
-	return 0;
+
+	//releaseMemory(&game);
 }
+
+void setDefaults(gameData* game) {
+	game->sett.aspectX = 1400;
+	game->sett.aspectY = 900;
+
+	/*game->sett.windowName = assign("multiPop");
+		
+		= (char*)malloc(sizeof(char));*/
+}
+
+//void releaseMemory(gameData* game) {
+//
+//}
