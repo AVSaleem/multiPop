@@ -1,36 +1,66 @@
-#pragma once
-#include <SFML/Graphics.hpp>
-#include <stdio.h>
+//added #include "gameData.h" in externals.h
 
-//must provide openall libary when using sfml-audio
-typedef struct Settings {
-	short aspectX;
-	short aspectY;
-	char windowName[];
-}settings;
+class Game {
+private:
+	//in game sprites-----------------------------------------------------------------------------------------------------
+		//sprite class will probalby be pure base where only derived versions of it can be created (players/mobs/blocks)
+	//Sprite* sprites;	//array of all the sprites which each contain their own data (location, health, heading direction) 
+	//int numSprites;
 
-typedef struct Player {
-	int points;
-	int health;
-	int money;
-}player;
+	Block* platforms;	//array of all platforms
+	int numPlatforms;
 
-typedef struct Terrain {
-	short** landType;
-	short** standingOn;
+	Player pMan;		//player
 
-}terrain;
+	Mob* mobs;			//array of all mobs
+	int numMobs;
 
-typedef struct MultiPopGameData {
-	player* player;
-	terrain land;
+	//-------------------------------------------------------------------------------------------------------------------
 
+public:
+	Game();
+	~Game();
 
-	settings sett;
-} gameData;
+	void display();
+};
 
 
-//#include <SFML/Graphics.hpp>
 
-int display(gameData* game);
-void setDefaults(gameData* game);
+
+
+
+
+
+//each of these will have its own class.h and class.cpp where it is stored
+class Sprite {}; //wip
+
+class Block : public Sprite {
+private:
+	int mobType;
+public:
+
+}; //wip
+
+class Player : public Sprite {
+private:
+	int lives;
+public:
+
+}; //wip
+
+class Mob : public Sprite {
+private:
+	int mobType;
+public:
+	Mob();
+	~Mob();
+
+	int type() {
+		return mobType; //used in other functions to determine correct non-generic action (only pinkman can explode)
+	}
+}; //wip
+
+class PinkMan : public Mob {}; //wip	//type 1 mob
+//--------------------------------------------------------------------------
+
+

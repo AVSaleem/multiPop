@@ -1,12 +1,17 @@
-#include "gameData.h"
-#include <stdio.h>
-#include <iostream>
+#include "externals.h"
 
-using namespace std;
 
-int display(gameData* game) {
+Game::Game() {
 
-	sf::RenderWindow window(sf::VideoMode(game->sett.aspectX, game->sett.aspectY), "multiPop", sf::Style::Close | sf::Style::Resize);// | sf::Style::Fullscreen);
+}
+
+Game::~Game() {
+
+}
+
+void Game::display() {
+
+	sf::RenderWindow window(sf::VideoMode(DEFAULT_WINDOWX, DEFAULT_WINDOWY), "multiPop", sf::Style::Close | sf::Style::Resize);// | sf::Style::Fullscreen);
 	sf::Event happen;
 
 	sf::RectangleShape player(sf::Vector2f(17.0f, 19.0f));
@@ -57,5 +62,4 @@ int display(gameData* game) {
 		window.display();	//display pulse
 
 	}
-	return 0;
 }
