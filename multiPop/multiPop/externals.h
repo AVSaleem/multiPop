@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <iostream>
 
+#include <cmath>
+#include <time.h>
+
+#define PI 3.14159265
+
+void fire(double x, double y, double r, sf::CircleShape ball1);
+
 //instead of using namespace std just add to this list if you want to abreviate a namespace;
 using std::cout;
 using std::endl;
@@ -11,7 +18,7 @@ using std::string;
 
 
 //classes
-#include "Game.h" //game class
+#include "Tank.h" //game class
 
 #define DEFAULT_WINDOWX 700
 #define DEFAULT_WINDOWY 700
