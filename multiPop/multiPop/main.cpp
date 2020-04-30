@@ -13,7 +13,7 @@ int main(void) {
 	Tank tanky = Tank(100, 100, 'r');
 	Tank tanky2 = Tank(1180, 620, 'g');
 
-	Sprite tSprite = Sprite(sf::Color::Magenta, 0, 0);
+	Sprite* tSprite = new Sprite(sf::Color::Magenta, 0, 0);
 
 	while (window.isOpen()) { //window runs within here
 
@@ -81,36 +81,27 @@ int main(void) {
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
 		{
-			tanky2.rotate(-1);
-			//base.rotate(-.125);
-			//printf(" %.2lf", base.getRotation());
+			tSprite->moveSprite(-1, 0);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 		{
-			tanky2.rotate(1);
-			//base.rotate(.125);
+			tSprite->moveSprite(1, 0);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
 		{
-			tanky2.move(speed, 1);
-			//	base.move(speed * ::cos(baseAngle), speed * ::sin(baseAngle));
-			//	cannon.setPosition(base.getPosition());
+			tSprite->moveSprite(0, -1);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
 		{
-			tanky2.move(speed, -1);
-			//	base.move(speed * ::cos(baseAngle) * -1, speed * ::sin(baseAngle) * -1);
-			//	cannon.setPosition(base.getPosition());
+			tSprite->moveSprite(0, 1);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 		{
-			tanky2.rotateCannon(1);
-			//	cannon.rotate(.125);
+			tSprite->setScale(1.01, 1.01);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
 		{
-			tanky2.rotateCannon(-1);
-			//cannon.rotate(-.125);
+			tSprite->setScale(0.99, 0.99);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
 		{
@@ -118,25 +109,9 @@ int main(void) {
 		}
 
 		//-----------------------------------------------------------------------------------------
-
-
-
-		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) { //if w is pressed
-		//	player.move(0, -1); //move player left by one each frame
-		//}
-		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-		//	player.move(-1, 0);
-		//}
-		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-		//	player.move(0, 1);
-		//}
-		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-		//	player.move(1, 0);
-		//}
-
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			sf::Vector2i mousePos = sf::Mouse::getPosition(window); //convert mouse position relative to scrren corner to in-window coordinates
-			(tSprite.getBody()).setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
+			(tSprite->getBody()).setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
 		}
 
 		window.clear(sf::Color(255, 255, 255)); //clear screen to white
@@ -149,8 +124,8 @@ int main(void) {
 		window.draw(tanky2.getBase());
 		window.draw(tanky2.getCannon());
 
-		// draw sprite
-		window.draw(tSprite.getBody());
+
+		tSprite->Draw(window);
 
 		window.display();	//display pulse
 	}

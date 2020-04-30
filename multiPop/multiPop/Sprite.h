@@ -9,6 +9,7 @@ class Sprite
 {
 private:
 	sf::RectangleShape body;
+	sf::Vector2f scale;
 	float x;
 	float y;
 public:
@@ -17,6 +18,10 @@ public:
 	
 	float getX();
 	float getY();
+
+	sf::Vector2f getScale();
+	void setScale(float, float);
+
 	void Draw(sf::RenderWindow&window);
 	void moveSprite(float x, float y);
 	sf::RectangleShape getBody();
