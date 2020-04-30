@@ -18,4 +18,6 @@ public:
 	void draww(sf::RenderWindow window);
 	sf::RectangleShape getBase();
 	sf::RectangleShape getCannon();
+
+	//Bullet& fire(angle, barrelx, barrely)
 };

@@ -76,6 +76,7 @@ int main(void) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 		{
 			//fire(tanky.getBase().getPosition().x, tanky.getBase().getPosition().y, (tanky.getCannon().getRotation() * PI / 180) + PI / 2, ball1);
+			//tanky.fire();
 		}
 
 

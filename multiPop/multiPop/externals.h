@@ -20,6 +20,7 @@ using std::string;
 //classes
 #include "Tank.h" //game class
 #include "Sprite.h"
+#include "Bullet.h"
 
 #define DEFAULT_WINDOWX 700
 #define DEFAULT_WINDOWY 700
