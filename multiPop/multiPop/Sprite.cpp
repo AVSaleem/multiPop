@@ -1,8 +1,8 @@
-#include "Sprite.h"
+#include "externals.h"
 
 
-Sprite::Sprite(sf::Texture* texture, float x, float y) {
-	body.setTexture(texture);
+Sprite::Sprite(sf::Color color, float x, float y) {
+	body.setFillColor(color);
 	this->x = x;
 	this->y = y;
 }
@@ -31,5 +31,9 @@ void Sprite::moveSprite(float x, float y)
 	body.move(movement);
 	this->x += x;
 	this->y += y;
+}
+
+sf::RectangleShape Sprite::getBody() {
+	return body;
 }
 

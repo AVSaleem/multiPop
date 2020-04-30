@@ -13,6 +13,8 @@ int main(void) {
 	Tank tanky = Tank(100, 100, 'r');
 	Tank tanky2 = Tank(1180, 620, 'g');
 
+	Sprite tSprite = Sprite(sf::Color::Magenta, 0, 0);
+
 	while (window.isOpen()) { //window runs within here
 
 		while (window.pollEvent(happen)) { //something is pressed
@@ -132,19 +134,23 @@ int main(void) {
 		//	player.move(1, 0);
 		//}
 
-		//if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		//	sf::Vector2i mousePos = sf::Mouse::getPosition(window); //convert mouse position relative to scrren corner to in-window coordinates
-		//	player.setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
-		//}
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			sf::Vector2i mousePos = sf::Mouse::getPosition(window); //convert mouse position relative to scrren corner to in-window coordinates
+			(tSprite.getBody()).setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
+		}
 
 		window.clear(sf::Color(255, 255, 255)); //clear screen to white
 		//window.draw(player);	//draw rectangle
 
+		// draw tank
 		window.draw(tanky.getBase());
 		//window.draw(ball1);
 		window.draw(tanky.getCannon());
 		window.draw(tanky2.getBase());
 		window.draw(tanky2.getCannon());
+
+		// draw sprite
+		window.draw(tSprite.getBody());
 
 		window.display();	//display pulse
 	}

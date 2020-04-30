@@ -8,7 +8,7 @@
 
 #define PI 3.14159265
 
-void fire(double x, double y, double r, sf::CircleShape ball1);
+//void fire(double x, double y, double r, sf::CircleShape ball1);
 
 //instead of using namespace std just add to this list if you want to abreviate a namespace;
 using std::cout;
@@ -19,6 +19,7 @@ using std::string;
 
 //classes
 #include "Tank.h" //game class
+#include "Sprite.h"
 
 #define DEFAULT_WINDOWX 700
 #define DEFAULT_WINDOWY 700

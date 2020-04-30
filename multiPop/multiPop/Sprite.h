@@ -12,12 +12,13 @@ private:
 	float x;
 	float y;
 public:
-	Sprite(sf::Texture *texture, float x, float y);
+	Sprite(sf::Color color, float x, float y);
 	~Sprite();
 	
 	float getX();
 	float getY();
 	void Draw(sf::RenderWindow&window);
 	void moveSprite(float x, float y);
+	sf::RectangleShape getBody();
 };
 
