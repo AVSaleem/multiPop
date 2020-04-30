@@ -48,7 +48,7 @@ Tank::Tank(int x, int y, char c)
 	base.setPosition(x, y);
 
 	cannon.setSize(sf::Vector2f(10, 45));
-	cannon.setFillColor(sf::Color::Yellow);
+	cannon.setFillColor(sf::Color::Blue);
 	cannon.setOrigin(5, 40);
 	cannon.setPosition(x, y);
 	baseAngle = 0;
