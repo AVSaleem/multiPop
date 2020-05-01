@@ -1,133 +1,184 @@
 #include "externals.h"
+//using namespace sf;
+//
+//const int W = 1920;
+//const int H = 1080;
+//
+//float DEGTORAD = 0.017453f;
 
-int main(void) {
+/*
+class Mob
+{
+   public:
+   float x,y,dx,dy,R,angle;
+   bool life;
+   std::string name;
+   sf::RectangleShape box;
+   //sf::Texture::m_size
+   Mob()
+   {
+     life=1;
+   }
+   Mob(int X, int Y, float Angle, int Radius){
+	   x = X;
+	   y = Y;
+	   angle = Angle;
+	   R = Radius;
+   }
 
-	sf::RenderWindow window(sf::VideoMode(DEFAULT_WINDOWX, DEFAULT_WINDOWY), "multiPop", sf::Style::Close | sf::Style::Resize);// | sf::Style::Fullscreen);
-	sf::Event happen;
+   Mob(int X, int Y, int Radius){
+	   x = X;
+	   y = Y;
+	   angle = 0;
+	   R = Radius;
+   }
 
-	sf::RectangleShape player(sf::Vector2f(17.0f, 19.0f));
-	player.setFillColor(sf::Color::Black); //make a small black rectangle
+   void settings(int X,int Y,float Angle=0,int radius=1)
+   {
+     x=X; y=Y;
+     angle = Angle;
+     R = radius;
+   }
 
+   virtual void update(float xx, float yy){};
 
-	float speed = .25;
-	Tank tanky = Tank(100, 100, 'r');
-	Tank tanky2 = Tank(1180, 620, 'g');
+   void draw(RenderWindow &bazinga)
+   {
+       box.setPosition(x,y);
+        box.setRotation(angle+90);
+	   bazinga.draw(box);
+     CircleShape circle(R);
+     circle.setFillColor(Color(255,0,0,170));
+     circle.setPosition(x,y);
+     circle.setOrigin(R,R);
+   }
 
-	Sprite* tSprite = new Sprite(sf::Color::Magenta, 0, 0);
+   virtual ~Mob(){};
+};*/
 
-	while (window.isOpen()) { //window runs within here
+/*
+class Solo: public Mob
+{
+   public:
+   Solo(int X, int Y, float Angle, int Radius):Mod(X,Y,Angle,Radius)
+   {
 
-		while (window.pollEvent(happen)) { //something is pressed
+     dx=rand()%8-4;
+     dy=rand()%8-4;
+     name="Solo";
+     box.setSize(sf::Vector2f(35, 50));
+	 box.setOrigin(sf::Vectort2f(17.5, 25));
+	 box.setFillColor(sf::Color::White);
+   }
 
-			switch (happen.type) {//some event happened
+   void update(float xx, float yy)
+   {
+        float hyp = sqrt((x - xx) * (x - xx) + (y - yy) * (y - yy));
+        x += (xx - x) / hyp;
+        y += (yy - y) / hyp;
 
-			case sf::Event::Closed: //close with x
-				window.close();
-				break;
-			case sf::Event::Resized:
-				std::cout << "Resize to:   Width=" << happen.size.width << " Height=" << happen.size.height << endl;
-				break;
-			case sf::Event::TextEntered: //types text in console from keyboard
-				if (happen.text.unicode < 128) {
-					cout << (char)happen.text.unicode;
-				}
-				break;
-			}
-		}
-		//------------------------------------------------------------------TANK
-		tanky.setBaseAngle();
-		tanky.setCannonAngle();
-		tanky2.setBaseAngle();
-		tanky2.setCannonAngle();
-		//-----------------------------------------------------------------------MOVE
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			tanky.rotate(-1);
-			//base.rotate(-.125);
-			//printf(" %.2lf", base.getRotation());
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		{
-			tanky.rotate(1);
-			//base.rotate(.125);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			tanky.move(speed, 1);
-			//	base.move(speed * ::cos(baseAngle), speed * ::sin(baseAngle));
-			//	cannon.setPosition(base.getPosition());
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			tanky.move(speed, -1);
-			//	base.move(speed * ::cos(baseAngle) * -1, speed * ::sin(baseAngle) * -1);
-			//	cannon.setPosition(base.getPosition());
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-		{
-			tanky.rotateCannon(1);
-			//	cannon.rotate(.125);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-		{
-			tanky.rotateCannon(-1);
-			//cannon.rotate(-.125);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			//fire(tanky.getBase().getPosition().x, tanky.getBase().getPosition().y, (tanky.getCannon().getRotation() * PI / 180) + PI / 2, ball1);
-			//tanky.fire();
-		}
+     if (x>W) x=0;  if (x<0) x=W;
+     if (y>H) y=0;  if (y<0) y=H;
+   }
 
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
-		{
-			tSprite->moveSprite(-1, 0);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
-		{
-			tSprite->moveSprite(1, 0);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
-		{
-			tSprite->moveSprite(0, -1);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
-		{
-			tSprite->moveSprite(0, 1);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
-		{
-			tSprite->setScale(1.01, 1.01);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
-		{
-			tSprite->setScale(0.99, 0.99);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
-		{
-
-		}
-
-		//-----------------------------------------------------------------------------------------
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-			sf::Vector2i mousePos = sf::Mouse::getPosition(window); //convert mouse position relative to scrren corner to in-window coordinates
-			(tSprite->getBody()).setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
-		}
-
-		window.clear(sf::Color(255, 255, 255)); //clear screen to white
-		//window.draw(player);	//draw rectangle
-
-		// draw tank
-		window.draw(tanky.getBase());
-		//window.draw(ball1);
-		window.draw(tanky.getCannon());
-		window.draw(tanky2.getBase());
-		window.draw(tanky2.getCannon());
+};
+*/
 
 
-		tSprite->Draw(window);
 
-		window.display();	//display pulse
-	}
+bool collision(Mob *a,Mob *b)
+{
+  return (b->x - a->x)*(b->x - a->x)+
+         (b->y - a->y)*(b->y - a->y)<
+         (a->R + b->R)*(a->R + b->R);
+}
+
+
+int main()
+{
+    srand(time(0));
+
+    RenderWindow bazinga(VideoMode(W, H), "Bazinga!");
+    bazinga.setFramerateLimit(60);
+
+	Texture t1, t2, t4, t6;
+    t1.loadFromFile("images/epic.png");
+    t2.loadFromFile("images/gradient.png");
+    t4.loadFromFile("images/rock.png");
+    t6.loadFromFile("images/rock_small.png");
+
+    Sprite background(t2);
+
+    std::list<Mob*> mobs;
+
+	
+
+
+    for(int i=0;i<15;i++)
+    {
+      Solo *a = new Solo(rand() % W, rand() % H, rand() % 360, 25);
+	 // a->settings(rand() % W, rand() % H, rand() % 360, 25);
+      mobs.push_back(a);
+    }
+
+    Steve *p = new Steve();
+   // p->settings(200,200,0,20);
+    mobs.push_back(p);
+
+    /////main loop/////
+    while (bazinga.isOpen())
+    {
+        Event event;
+        while (bazinga.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+                bazinga.close();
+        }	//hell yeah
+
+    if (Keyboard::isKeyPressed(Keyboard::Right)) p->angle+=3;
+    if (Keyboard::isKeyPressed(Keyboard::Left))  p->angle-=3;
+    if (Keyboard::isKeyPressed(Keyboard::Up)) p->thrust=true;
+    else p->thrust=false;
+
+
+    for(auto a:mobs)
+     for(auto b:mobs)
+     {
+		 if (a->name == "Steve" && b->name == "Solo") {
+			 if (collision(a, b))
+			 {
+				 b->life = false;
+				 //p->settings(W/2,H/2,0,20);
+				 p->dx = 0; p->dy = 0;
+			 }
+		 }
+     }
+	//zoot
+
+    if (rand()%120==0)
+     {
+       Solo *a = new Solo(0,rand()%H, rand()%360, 25);
+       //a->settings(0,rand()%H, rand()%360, 25);
+       mobs.push_back(a);
+     }
+    float x = p->x, y = p->y;
+
+    for(auto i=mobs.begin();i!=mobs.end();)
+    {
+      Mob *e = *i;
+
+      e->update(x, y);
+
+      if (e->life==false) {i=mobs.erase(i); delete e;}
+      else i++;
+    }
+
+   //////draw//////
+   bazinga.clear();
+   bazinga.draw(background);
+   for(auto i:mobs) i->draw(bazinga); //for every element of mobs
+   bazinga.display();
+   }
+
+    return 0;
 }

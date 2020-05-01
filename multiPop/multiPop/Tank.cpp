@@ -1,4 +1,4 @@
-#include "externals.h"
+/*#include "externals.h"
 
 void Tank::setBaseAngle()
 {
@@ -36,21 +36,35 @@ sf::RectangleShape Tank::getCannon()
 {
 	return cannon;
 }
-Tank::Tank(int x, int y, char c)
+
+void Tank::tick()
+{
+
+}
+
+Tank::Tank(float xx, float yy, char c) : Sprite(x,y)
 {
 	base.setSize(sf::Vector2f(40, 50));
 	//sf::RectangleShape base(sf::Vector2f(40, 50));
-	if (c == 'r')
+	if (c == 'r') {
 		base.setFillColor(sf::Color::Red);
-	if (c == 'g')
+	}
+	if (c == 'g') {
 		base.setFillColor(sf::Color::Green);
+	}
 	base.setOrigin(20, 25);
-	base.setPosition(x, y);
-
+	base.setPosition(xx, yy);
 	cannon.setSize(sf::Vector2f(10, 45));
 	cannon.setFillColor(sf::Color::Blue);
 	cannon.setOrigin(5, 40);
-	cannon.setPosition(x, y);
+	cannon.setPosition(xx, yy);
 	baseAngle = 0;
 	cannonAngle = 0;
 }
+
+//Bullet* Tank::fire() {
+//	//Bullet* shot = new Bullet(cannonAngle, cannon.getPosition().x, cannon.getPosition().y);
+//
+//	//return shot;
+//}
+*/
