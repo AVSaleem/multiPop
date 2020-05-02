@@ -1,3 +1,12 @@
+/*
+NAMES:	Edwin Ramirez, Caden Silberlicht, Adam Szymanski, 
+		Amy Nguyen
+PROJECT:PA9
+GAME:	"Bazinga!" is a game that puts you on ince, and
+		you must avoid the "solos" on ice by moving around.
+		You have three lives.
+DATE:	May 1st 2020
+*/
 #pragma once
 #define PI 3.14159265
 
@@ -28,3 +37,4 @@ const int H = 1080;
 #include "Mob.h"
 #include "Steve.h"
 #include "Solo.h"
+#include "Heart.h"

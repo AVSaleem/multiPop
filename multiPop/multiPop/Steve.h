@@ -1,4 +1,14 @@
+/*
+NAMES:	Edwin Ramirez, Caden Silberlicht, Adam Szymanski, 
+		Amy Nguyen
+PROJECT:PA9
+GAME:	"Bazinga!" is a game that puts you on ince, and
+		you must avoid the "solos" on ice by moving around.
+		You have three lives.
+DATE:	May 1st 2020
+*/
 #pragma once
+#include "externals.h"
 class Steve : public Mob
 {
 public:
@@ -8,7 +18,6 @@ public:
 		name = "Steve";
 		box.setSize(sf::Vector2f(60, 80));
 		box.setOrigin(sf::Vector2f(30, 40));
-		//box.setFillColor(sf::Color::White);
 		box.setFillColor(sf::Color(110, 20, 50));
 		x = 200;
 		y = 200;
@@ -21,7 +30,6 @@ public:
 		name = "Steve";
 		box.setSize(sf::Vector2f(60, 80));
 		box.setOrigin(sf::Vector2f(30, 40));
-		//box.setFillColor(sf::Color::White);
 		box.setFillColor(sf::Color(150, 20, 90));
 		x = X;
 		y = Y;
@@ -29,21 +37,21 @@ public:
 		R = Radius;
 	}
 
-	void update(float xx, float yy)
+	void update(float xx, float yy, bool isDie)
 	{
 		if (thrust)
 		{
-			dx += cos(angle * (PI / 180)) * 0.2;
+			dx += cos(angle * (PI / 180)) * 0.2; //uses trig to determine dx and dy to go a certain direction for acceleration of thrust
 			dy += sin(angle * (PI / 180)) * 0.2;
 		}
 		else
 		{
 			dx *= 0.99;
-			dy *= 0.99;
+			dy *= 0.99; //decelerates
 		}
 
-		int maxSpeed = 15;
-		float speed = sqrt(dx * dx + dy * dy);
+		int maxSpeed = 15; 
+		float speed = sqrt(dx * dx + dy * dy);  //limits speed
 		if (speed > maxSpeed)
 		{
 			dx *= maxSpeed / speed;
@@ -51,9 +59,9 @@ public:
 		}
 
 		x += dx;
-		y += dy;
+		y += dy; //updates movement
 
-		if (x > W)
+		if (x > W) //allows movent wraps around to the other side when player goes offscreen
 			x = 0; 
 		if (x < 0) 
 			x = W;

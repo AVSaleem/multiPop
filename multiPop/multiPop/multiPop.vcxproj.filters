@@ -18,9 +18,6 @@
     <ClInclude Include="externals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Steve.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,32 +27,29 @@
     <ClInclude Include="Solo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Steve.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="old_main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Solo.cpp">
+    <ClCompile Include="Heart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="epic.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\solo.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\epicsteve.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\epicup.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -130,23 +130,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="externals.h" />
+    <ClInclude Include="Heart.h" />
     <ClInclude Include="Mob.h" />
     <ClInclude Include="Steve.h" />
     <ClInclude Include="Solo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Heart.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="old_main.cpp" />
-    <ClCompile Include="Mob.cpp" />
-    <ClCompile Include="Solo.cpp" />
-    <ClCompile Include="Steve.cpp" />
-    <ClCompile Include="Tank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="epic.png" />
+    <Image Include="images\epicsteve.png" />
+    <Image Include="images\epicup.png" />
+    <Image Include="images\solo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="bin.txt" />

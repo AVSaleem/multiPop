@@ -1,31 +1,12 @@
-
 /*
-class Mob
-{
-public:
-	float x, y, dx, dy, R, angle;
-	bool life;
-	string name;
-	RectangleShape box;
-	//sf::Texture::m_size
-	Mob();
-	Mob(int X, int Y, float Angle, int Radius);
-
-	Mob(int X, int Y, int Radius);
-	/*
-	void settings(int X,int Y,float Angle=0,int radius=1)
-	{
-	  x=X; y=Y;
-	  angle = Angle;
-	  R = radius;
-	}
-
-	virtual void update(float xx, float yy);
-
-	void draw(RenderWindow& bazinga);
-
-	virtual ~Mob();
-};*/
+NAMES:	Edwin Ramirez, Caden Silberlicht, Adam Szymanski, 
+		Amy Nguyen
+PROJECT:PA9
+GAME:	"Bazinga!" is a game that puts you on ince, and
+		you must avoid the "solos" on ice by moving around.
+		You have three lives.
+DATE:	May 1st 2020
+*/
 #pragma once
 class Mob
 {
@@ -34,7 +15,6 @@ public:
 	int life;
 	std::string name;
 	sf::RectangleShape box;
-	//sf::Texture::m_size
 	Mob()
 	{
 		life = 3;
@@ -44,7 +24,7 @@ public:
 		y = Y;
 		angle = Angle;
 		R = Radius;
-		life = 1;
+		life = 3;
 		box.setFillColor(sf::Color(150, 20, 90));
 	}
 
@@ -54,22 +34,15 @@ public:
 		angle = 0;
 		R = Radius;
 	}
-	/*
-	void settings(int X, int Y, float Angle = 0, int radius = 1)
-	{
-		x = X; y = Y;
-		angle = Angle;
-		R = radius;
-	}*/
 
-	virtual void update(float xx, float yy) {};
+	virtual void update(float xx, float yy, bool isDie) {};
 
-	void draw(RenderWindow& bazinga)
+	void draw(RenderWindow& bazinga) //draws mobs and updates positions of shapes and hitboxes
 	{
 		box.setPosition(x, y);
-		box.setRotation(angle + 90);
+		box.setRotation(angle + 90); 
 		bazinga.draw(box);
-		CircleShape circle(R);
+		CircleShape circle(R); //hitbox
 		circle.setFillColor(Color(255, 0, 0, 170));
 		circle.setPosition(x, y);
 		circle.setOrigin(R, R);
