@@ -14,6 +14,9 @@ CONTROLS:
 	Right Arrow Key: TURN RIGHT
 	Left Arrow Key:  TURN LEFT
 	Up Arrow Key:    THRUST FORWARD
+
+TIME:
+	The time you survive will be displayed in the console window
 */
 
 
@@ -43,13 +46,13 @@ int main()
 	mobs.push_back(p);
 	
 
-	int lives = 3;		// player starts with 3 lives
+	//int lives = 3;		// player starts with 3 lives
 	Heart* life1 = new Heart(0, 0);
 	Heart* life2 = new Heart(50, 0);
 	Heart* life3 = new Heart(100, 0);
 	
 	bool isDie;
-
+	Clock clock;
 	/////main loop/////
 	while (bazinga.isOpen()) 
 	{
@@ -79,14 +82,16 @@ int main()
 					if (collision(a, b)) //detects collision
 					{
 						p->life--;
-						lives--;
+						//lives--;
 						isDie = true;
 						if(p->life == 0)
 						{
-
-							bazinga.close(); //to close game after 3 lives lost
-
-
+							//bazinga.close(); //to close game after 3 lives lost
+							p->life = 3;
+							std::cout << "Death!" << std::endl;
+							Time time1 = clock.getElapsedTime();
+							std::cout << "You survived for " << time1.asSeconds() << " seconds" << std::endl;
+							clock.restart();
 						}
 						else //resets position and stops thrust after life is lost
 						{
@@ -117,10 +122,7 @@ int main()
 			{
 				i = mobs.erase(i);
 				delete e;
-				--lives;
-
-				//for (auto i : mobs)
-				//	i->deathSwitch(); //for every element of mobs
+				--(p->life); //erase a life
 			} 
 			else
 				i++;
@@ -133,19 +135,20 @@ int main()
 			i->draw(bazinga); //for every element of mobs
 		
 		//draw amount of lives the player has left 
-		if (lives == 3) {
+		if (p->life == 3) {
 			life1->draw(bazinga);
 			life2->draw(bazinga);
 			life3->draw(bazinga);
 		}
-		else if (lives == 2) {
+		else if (p->life == 2) {
 			life1->draw(bazinga);
 			life2->draw(bazinga);
 		}
-		else if (lives == 1) {
+		else if (p->life == 1) {
 			life1->draw(bazinga);
 		}
-		bazinga.display();
+
+		bazinga.display(); //display window buffer
 	}
 	return 0;
 }

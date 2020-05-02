@@ -17,6 +17,7 @@ Steve::Steve() {
 	y = 200;
 	angle = 0;
 	R = 35;
+	life = 3;
 }
 
 Steve::Steve(int X, int Y, int Radius)
@@ -29,6 +30,7 @@ Steve::Steve(int X, int Y, int Radius)
 	y = Y;
 	angle = 0;
 	R = Radius;
+	life = 3;
 }
 
 void Steve::update(float xx, float yy, bool isDie)

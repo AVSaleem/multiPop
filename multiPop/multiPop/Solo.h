@@ -17,10 +17,10 @@ public:
 	{
 		double randx = W / 2;
 		double randy = H / 2;
-		while (abs(randx) <= W && abs(randy) <= H)
+		while (abs(randx) <= W && abs(randy) <= H) // repeats while neither are offscreen
 		{
 			randx = rand() % (W + 20);
-			if (rand() % 2 == 1)
+			if (rand() % 2 == 1) 
 			{
 				randx *= -1;						//this whole segment randomly spawns them offscreen
 			}

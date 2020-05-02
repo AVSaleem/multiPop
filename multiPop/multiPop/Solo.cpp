@@ -38,5 +38,6 @@ void Solo::update(float xx, float yy, bool isDie)
 		}
 		x = randx;
 		y = randy;
+
 	}
 }
