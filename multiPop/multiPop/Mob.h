@@ -15,38 +15,14 @@ public:
 	int life;
 	std::string name;
 	sf::RectangleShape box;
-	Mob()
-	{
-		life = 3;
-	}
-	Mob(int X, int Y, float Angle, int Radius) {
-		x = X;
-		y = Y;
-		angle = Angle;
-		R = Radius;
-		life = 3;
-		box.setFillColor(sf::Color(150, 20, 90));
-	}
+	Mob();
+	Mob(int X, int Y, float Angle, int Radius);
 
-	Mob(int X, int Y, int Radius) {
-		x = X;
-		y = Y;
-		angle = 0;
-		R = Radius;
-	}
+	Mob(int X, int Y, int Radius);
 
-	virtual void update(float xx, float yy, bool isDie) {};
+	virtual void update(float xx, float yy, bool isDie);
 
-	void draw(RenderWindow& bazinga) //draws mobs and updates positions of shapes and hitboxes
-	{
-		box.setPosition(x, y);
-		box.setRotation(angle + 90); 
-		bazinga.draw(box);
-		CircleShape circle(R); //hitbox
-		circle.setFillColor(Color(255, 0, 0, 170));
-		circle.setPosition(x, y);
-		circle.setOrigin(R, R);
-	}
+	void draw(RenderWindow& bazinga); //draws mobs and updates positions of shapes and hitboxes
 
-	virtual ~Mob() {};
+	virtual ~Mob();
 };

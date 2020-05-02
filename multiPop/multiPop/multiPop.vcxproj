@@ -137,8 +137,12 @@
     <ClInclude Include="Solo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mob.cpp" />
+    <ClCompile Include="Solo.cpp" />
+    <ClCompile Include="Steve.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="epic.png" />

@@ -38,3 +38,6 @@ const int H = 1080;
 #include "Steve.h"
 #include "Solo.h"
 #include "Heart.h"
+
+
+bool collision(Mob* a, Mob* b);
