@@ -7,7 +7,7 @@
 
 /*#include "externals.h"
 
-Steve::Steve(sf::Color color, float x, float y) : Sprite(color,x,y)
+Steve::Steve(sf::Color color, float x, float y) : Sprite(a,x,y)
 {
 }
 

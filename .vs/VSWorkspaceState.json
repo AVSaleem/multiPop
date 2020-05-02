@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\multiPop",
-    "\\multiPop\\multiPop"
+    "\\multiPop\\multiPop",
+    "\\multiPop\\multiPop\\images"
   ],
-  "SelectedNode": "\\multiPop\\multiPop\\bin.txt",
+  "SelectedNode": "\\multiPop\\multiPop\\Solo.h",
   "PreviewInSolutionExplorer": false
 }

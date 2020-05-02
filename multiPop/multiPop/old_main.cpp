@@ -49,7 +49,7 @@ int main(void) {
 			case sf::Event::KeyPressed:
 				if(happen.key.code == sf::Keyboard::F)
 				{
-				
+
 				}
 
 			}
@@ -57,7 +57,7 @@ int main(void) {
 		//------------------------------------------------------------------TANK
 		tanky->setBaseAngle();
 		tanky->setCannonAngle();
-		
+
 		//-----------------------------------------------------------------------MOVE
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			tanky->rotate(-1);
@@ -82,13 +82,13 @@ int main(void) {
 			//(tSprite->getBody()).setPosition((float)mousePos.x, static_cast<float>(mousePos.y)); //(float)mousePos.x same as static_typecast<float>(mousePos.x)
 			//shot = tanky->fire();
 		}
-		
+
 		window.clear(sf::Color(255, 255, 255)); //clear screen to white
 
 
 		// draw tank
 		window.draw(tanky->getBase());
-		
+
 		window.draw(tanky->getCannon());
 
 		//tSprite->Draw(window);

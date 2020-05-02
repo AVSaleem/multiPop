@@ -25,8 +25,6 @@ using std::string;
 const int W = 1920;
 const int H = 1080;
 
-float DEGTORAD = 0.017453f;
-
 #include "Mob.h"
 #include "Steve.h"
 #include "Solo.h"

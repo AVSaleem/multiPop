@@ -39,7 +39,7 @@
 	}
 
 */
-	//virtual ~Mob() {}
+//virtual ~Mob() {}
 /*
 Sprite::Sprite(sf::Color color, float x, float y) {
 	scale.x = 1;
